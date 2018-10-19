@@ -1,10 +1,11 @@
 // @flow
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 
-import TransactionCard from '../components/TransactionCard';
-import {BLUE_SEA, RED, WHITE} from '../constants/colors';
+import TransactionCard from './components/TransactionCard';
+import BalanceCard from './components/BalanceCard';
+import {BLUE_SEA, RED} from '../../constants/colors';
 
 const TRANSACTIONS_DATA = [
   {
@@ -63,38 +64,5 @@ class Dashboard extends Component<*, *> {
     );
   }
 }
-
-type BalanceCardProps = {
-  title: string;
-  amount: string;
-  color: string;
-};
-
-function BalanceCard(props: BalanceCardProps) {
-  let {title, amount, color} = props;
-  return (
-    <View
-      style={[
-        balanceCardStyles.card,
-        {
-          backgroundColor: color,
-        },
-      ]}
-    >
-      <Text style={{fontSize: 16, color: WHITE}}>{title}</Text>
-      <Text style={{fontSize: 22, color: WHITE}}>{amount}</Text>
-    </View>
-  );
-}
-
-let balanceCardStyles = StyleSheet.create({
-  card: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 20,
-    margin: 5,
-    borderRadius: 5,
-  },
-});
 
 export default Dashboard;

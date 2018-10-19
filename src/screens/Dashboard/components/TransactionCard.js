@@ -3,19 +3,11 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-import {Card, Icon} from '../core-ui';
-import {BLUE_SEA, RED} from '../constants/colors';
+import {Card, Icon} from '../../../core-ui';
+import {categoryToIconName} from '../../../generals/utils';
+import {BLUE_SEA, RED} from '../../../constants/colors';
 
-type Category =
-  | 'food'
-  | 'clothes'
-  | 'communications'
-  | 'entertainment'
-  | 'transportation'
-  | 'bills'
-  | 'salary'
-  | 'savings'
-  | 'deposits';
+import type {Category} from '../../../types';
 
 type TransactionCardProps = {
   type: 'EXPENSE' | 'INCOME';
@@ -79,18 +71,3 @@ let styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
 });
-
-function categoryToIconName(category: Category): string {
-  let categoryToIconName = {
-    food: 'cutlery',
-    clothes: 'suitcase',
-    communications: 'phone',
-    entertainment: 'beer',
-    transportation: 'car',
-    bills: 'credit-card',
-    salary: 'money',
-    savings: 'dollar',
-    deposits: 'bank',
-  };
-  return categoryToIconName[category];
-}
